@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 /**
- * Byh default, serve our index.html file
+ * By default, serve our index.html file
  */
 app.get('*', (req, res) => res.sendFile(`${settings.APP_ROOT}/index.html`));
 

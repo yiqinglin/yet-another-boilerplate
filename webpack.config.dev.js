@@ -68,8 +68,7 @@ module.exports = [
     */
     externals: [nodeExternals()],
     output: {
-      path: path.resolve('./'),
-      filename: './public/server.js'
+      filename: './server.js'
     },
     resolve: {
       modules: ['./src/server'],
