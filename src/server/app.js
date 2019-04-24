@@ -7,6 +7,14 @@ import mongoose from 'mongoose';
 import { ApolloServer, gql } from 'apollo-server-express';
 import schema from './graphql'
 
+
+/**
+ * Initialize the database.
+ */
+mongoose.connect(settings.MONGO_URI, { useNewUrlParser: true })
+  .then(() => console.log('Connected to MongoDB at', settings.MONGO_URI))
+  .catch(error => console.log(error));
+
 /**
  * Initialize the app
  */
@@ -29,7 +37,7 @@ server.applyMiddleware({ app });
 /**
  * Initialize the database.
  */
-// mongoose.connect(settings.MONGO_URI, { useNewUrlParser: true });
+mongoose.connect(settings.MONGO_URI, { useNewUrlParser: true });
 
 /**
  * Serve files in the /public directory as static files.
