@@ -1,7 +1,18 @@
+// @flow
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import { graphql, compose } from 'react-apollo';
 
+type User = {
+  _id: string,
+  username: string
+}
+
+type Props = {
+  isFetching: boolean,
+  users: [User],
+  addUser: (string) => User
+}
 
 const userList = (isFetching, users) => {
   if (isFetching) return 'Loading...';

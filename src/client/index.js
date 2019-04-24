@@ -1,8 +1,9 @@
+// @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import App from '~/app/components/App';
+import App from 'app/components/App';
 
 const client = new ApolloClient({ uri: `/graphql` })
 
@@ -12,4 +13,8 @@ const ApolloApp = () => (
   </ApolloProvider>
 );
 
-ReactDOM.render(<ApolloApp />, document.getElementById('app'));
+const appRoot = document.getElementById('app');
+
+if (appRoot != null) {
+  ReactDOM.render(<ApolloApp />, appRoot);
+}
