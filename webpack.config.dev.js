@@ -17,13 +17,10 @@ module.exports = [
       modules: ['node_modules', './src/client'],
       /**
       * Overriding the default to allow jsx to be resolved automatically.
+      * Add '.mjs' before '.js' for webpack to correctly resolve .mjs files from https://github.com/graphql/graphql-js/issues/1272
       */
-      extensions: ['.js', '.json', '.jsx'],
-      /**
-      * Access config from anywhere via `import settings from 'settings'``
-      */
+      extensions: ['.mjs', '.js', '.json', '.jsx'],
       alias: {
-        settings: path.resolve(__dirname, './settings.js'),
         '~': path.resolve(__dirname, './src/client')        
       }
     },

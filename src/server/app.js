@@ -3,6 +3,9 @@ import "isomorphic-fetch"
 import bodyParser from 'body-parser';
 import express from 'express';
 import settings from 'settings';
+import mongoose from 'mongoose';
+import { ApolloServer, gql } from 'apollo-server-express';
+import schema from './graphql'
 
 /**
  * Initialize the app
@@ -15,6 +18,18 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+/**
+ * Set up Apollo Server
+ */
+
+const server = new ApolloServer(schema);
+server.applyMiddleware({ app });
+
+/**
+ * Initialize the database.
+ */
+// mongoose.connect(settings.MONGO_URI, { useNewUrlParser: true });
 
 /**
  * Serve files in the /public directory as static files.
