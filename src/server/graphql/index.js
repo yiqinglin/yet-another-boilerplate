@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-express';
-import User from '~/models/user';
+import User from 'models/user';
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
@@ -20,14 +20,14 @@ const resolvers = {
   Query: {
     async users() {
       const users = await User.find().exec();
-      
-      return users
+
+      return users;
     }
   },
   Mutation: {
     async addUser(obj, args) {
       const { username } = args;
-      const newUser = await User.create({username});
+      const newUser = await User.create({ username });
 
       return newUser;
     }
@@ -36,5 +36,5 @@ const resolvers = {
 
 export default {
   typeDefs,
-  resolvers,
+  resolvers
 };

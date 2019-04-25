@@ -5,7 +5,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import App from 'app/components/App';
 
-const client = new ApolloClient({ uri: `/graphql` })
+const client = new ApolloClient({ uri: '/graphql' });
 
 const ApolloApp = () => (
   <ApolloProvider client={client}>
